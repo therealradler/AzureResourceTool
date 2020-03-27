@@ -32,9 +32,6 @@ func init() {
 	}
 	config.ParseEnvironment()
 	clientData.SubscriptionID = config.SubscriptionID()
-	if clientData.SubscriptionID {
-		fmt.Println("No Subscription Id")
-	}
 
 }
 
@@ -46,7 +43,7 @@ func main() {
 	config.SetGroupName("Versacomm-qa")
 	results, err := GetGroups(ctx)
 	if err != nil {
-		log.Fatalln("Failed to Return Group %s", err)
+		fmt.Printf("Failed to Return Group %v", err)
 	}
 	fmt.Println(*results.Name)
 	fmt.Println(*results.Location)
